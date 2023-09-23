@@ -6,3 +6,12 @@ The primary idea was to help myself generate more meal plan ideas as I eat 5-6 m
 
 
 My next improvement will to be developing a webscraping function for same caloric amount, nutrition amount while generating different recipes, in order to break up monotony of bulking, cutting or maintain physique. 
+
+
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+
+
+![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
+
+
+![Jupyter Notebook](https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=for-the-badge&logo=jupyter&logoColor=white)
