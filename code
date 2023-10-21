@@ -1,62 +1,87 @@
-# Function to calculate BMI
-def calculate_bmi(weight_kg, height_m):
-    return weight_kg / (height_m ** 2)
+# The prompt 
+# Please make all the foods anti-inflammatory, no eggs , but add salmon, ground beef 
+over the course of a week. Please design this with python and make sure it meets the caloric county of 5400
 
-# Input: Name, Weight (kg), Height (m), and Gender
-name = input("Enter your name: ")
-weight_kg = float(input("Enter your weight in kilograms: "))
-height_m = float(input("Enter your height in meters: "))
-gender = input("Enter your gender (M/F): ").strip().lower()
+#The Result
 
-# Calculate BMI
-BMI = calculate_bmi(weight_kg, height_m)
+import random
 
-# Determine BMI category and provide meal plan
-if BMI > 0:
-    if BMI < 18.5:
-        print(name + ", you are underweight.")
-        # Suggested meal plan for gaining weight (calorie count may vary):
-        if gender == "m":
-            print("Sample Meal Plan for Weight Gain:")
-            print("1. Breakfast: Scrambled eggs with avocado and whole-grain toast (500-600 calories)")
-            print("2. Snack: Greek yogurt with nuts and honey (200-300 calories)")
-            print("3. Lunch: Grilled chicken breast, quinoa, and steamed vegetables (600-700 calories)")
-            print("4. Snack: Peanut butter and banana smoothie (300-400 calories)")
-            print("5. Dinner: Salmon, sweet potato, and asparagus (600-700 calories)") 
-            print("6. Dinner: Salmon, sweet potato, and asparagus (600-700 calories)") 
-        else:
-            print("Sample Meal Plan for Weight Gain:")
-            print("1. Breakfast: Greek yogurt with berries and granola (400-500 calories)")
-            print("2. Snack: Hummus with veggies and whole-grain crackers (200-300 calories)")
-            print("3. Lunch: Chickpea salad with quinoa (600-700 calories)")
-            print("4. Snack: Almonds and a piece of fruit (200-300 calories)")
-            print("5. Dinner: Tofu stir-fry with broccoli and brown rice (600-700 calories)")
-    elif BMI <= 24.9:
-        print(name + ", you are in the normal weight range.")
-        # Suggested meal plan for maintaining weight (calorie count may vary):
-        print("Sample Meal Plan for Weight Maintenance:")
-        print("1. Breakfast: Oatmeal with fruits and nuts (400-500 calories)")
-        print("2. Snack: Greek yogurt or a piece of cheese (150-200 calories)")
-        print("3. Lunch: Grilled chicken or tofu salad (500-600 calories)")
-        print("4. Snack: Mixed nuts and dried fruits (200-300 calories)")
-        print("5. Dinner: Baked salmon or a vegetarian protein source with steamed vegetables (600-700 calories)")
-    elif BMI < 29.9:
-        print(name + ", you are overweight.")
-        # Suggested meal plan for weight loss (calorie count may vary):
-        print("Sample Meal Plan for Weight Loss:")
-        print("1. Breakfast: Smoothie with spinach, banana, and protein powder (300-400 calories)")
-        print("2. Snack: Carrot sticks with hummus (100-150 calories)")
-        print("3. Lunch: Grilled chicken or a plant-based protein with a side salad (400-500 calories)")
-        print("4. Snack: Greek yogurt with berries (150-200 calories)")
-        print("5. Dinner: Baked fish or tofu with roasted vegetables (400-500 calories)")
-    elif BMI < 34.9:
-        print(name + ", you are obese.")
-        # Suggested meal plan for weight loss (calorie count may vary):
-        print("Sample Meal Plan for Weight Loss:")
-        print("1. Breakfast: Scrambled eggs with vegetables (300-400 calories)")
-        print("2. Snack: Almonds and an apple (200-250 calories)")
-        print("3. Lunch: Grilled chicken or tofu wrap with a side of mixed greens (400-500 calories)")
-        print("4. Snack: Cottage cheese with pineapple (150-200 calories)")
-        print("5. Dinner: Lean protein (chicken, fish, or plant-based) with quinoa and steamed broccoli (400-500 calories)")
+# Define anti-inflammatory foods
+anti_inflammatory_foods = [
+    {"name": "Salmon", "calories": 367, "protein": 39, "carbs": 0, "fat": 24},
+    {"name": "Ground Beef", "calories": 250, "protein": 25, "carbs": 0, "fat": 17},
+    {"name": "Quinoa", "calories": 120, "protein": 4, "carbs": 21, "fat": 2},
+    {"name": "Spinach", "calories": 23, "protein": 2, "carbs": 4, "fat": 0},
+    {"name": "Sweet Potatoes", "calories": 180, "protein": 2, "carbs": 41, "fat": 0},
+    {"name": "Broccoli", "calories": 55, "protein": 3, "carbs": 12, "fat": 0},
+    {"name": "Nuts", "calories": 180, "protein": 5, "carbs": 5, "fat": 16},
+    {"name": "Berries", "calories": 50, "protein": 1, "carbs": 12, "fat": 0},
+    {"name": "Hummus", "calories": 50, "protein": 2, "carbs": 6, "fat": 2},
+    {"name": "Mixed Greens", "calories": 10, "protein": 1, "carbs": 2, "fat": 0},
+    {"name": "Carrots", "calories": 41, "protein": 1, "carbs": 10, "fat": 0},
+    {"name": "Cucumber", "calories": 16, "protein": 1, "carbs": 4, "fat": 0},
+]
+
+# Initialize variables
+meal_plan = []
+total_calories = 0
+target_calories = 5400
+
+# Create a week-long meal plan
+for day in range(7):
+    daily_calories = 0
+    daily_meals = []
+    
+    # Breakfast
+    breakfast = random.choice(anti_inflammatory_foods)
+    daily_meals.append(breakfast)
+    daily_calories += breakfast["calories"]
+    
+    # Snack
+    snack = random.choice(anti_inflammatory_foods)
+    daily_meals.append(snack)
+    daily_calories += snack["calories"]
+    
+    # Lunch
+    lunch = random.choice(anti_inflammatory_foods)
+    daily_meals.append(lunch)
+    daily_calories += lunch["calories"]
+    
+    # Snack
+    snack = random.choice(anti_inflammatory_foods)
+    daily_meals.append(snack)
+    daily_calories += snack["calories"]
+    
+    # Dinner
+    dinner = random.choice(anti_inflammatory_foods)
+    daily_meals.append(dinner)
+    daily_calories += dinner["calories"]
+    
+    meal_plan.append({
+        "Day": day + 1,
+        "Meals": daily_meals,
+        "Total Calories": daily_calories
+    })
+    
+    total_calories += daily_calories
+
+# Adjust the last day's dinner to meet the target calories
+meal_plan[-1]["Meals"][-1] = anti_inflammatory_foods[0]
+
+# Print the meal plan
+for day in meal_plan:
+    print(f"Day {day['Day']}:")
+    for meal in day["Meals"]:
+        print(f"{meal['name']} - {meal['calories']} calories")
+    print(f"Total Calories: {day['Total Calories']}\n")
+
+print(f"Total Calories for the Week: {total_calories}")
+
+# Adjust for the target calories
+if total_calories > target_calories:
+    print("Total calories exceed the target. Please adjust the meal plan.")
+elif total_calories < target_calories:
+    print("Total calories are less than the target. Please adjust the meal plan.")
 else:
-    print("Enter valid input")
+    print("The meal plan meets the target of 5400 calories.")
+
