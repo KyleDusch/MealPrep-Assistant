@@ -27,7 +27,7 @@ meal_plan = []
 total_calories = 0
 target_calories = 5400
 
-# Create a week-long meal plan
+# Create a week-long meal plan, for practicality.
 for day in range(7):
     daily_calories = 0
     daily_meals = []
